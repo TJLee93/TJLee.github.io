@@ -14,6 +14,8 @@ console.log('feat.codestates')
 
 *참고로 블로그 테마는 Jekyll 테마이며 그중에서 minimal-mistakes라는 테마를 사용하셨습니다.
 
-[Jekyll-theme]: https://github.com/topics/jekyll-theme
+[Jekyll-theme]:
+https://github.com/topics/jekyll-theme
 
-[mmistakes / minimal-mistake]: https://github.com/mmistakes/minimal-mistake
+[mmistakes / minimal-mistake]:
+https://github.com/mmistakes/minimal-mistake
