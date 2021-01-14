@@ -108,11 +108,11 @@ analytics:
 # Site Author
 author:
   name             : "TJLee"
-  avatar           : "![쿵푸기린](https://user-images.githubusercontent.com/70124288/104565113-240bd780-568f-11eb-9c53-538c7bbce69e.jpg)
-" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "_imageFiles/쿵푸기린.jpg"
+ # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "이 블로그는 JavaScript를 공부하면서 제대로 이해했는지 체크하는 '진실의 방'입니다."
   location         : "South Korea"
-  email            :
+  email            : "dlxowns97@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
