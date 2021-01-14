@@ -1,6 +1,6 @@
 ---
 title: "This is Instantiation Patterns"
-date: 2021-01-14 11:52:33 -0400
+date: 2021-01-14 23:52:33 -0400
 categories: JavaScript codestates github Instantiation class
 ---
 ![instantiation patterns](https://user-images.githubusercontent.com/70124288/104607554-49ff9f00-56c4-11eb-800d-404096c40835.jpeg)
@@ -32,8 +32,8 @@ let Car = function(position) {
     return someInstance;
 } // 인자를 통해 position의 초기값을 설정
 ```
-이렇게 변수에 함수를 할당하고 함수에 객체와 함수를 넣어줘서 객체를 리턴하는 함수를 생성하면 우리가 알고있던 class가 만들어진다. 하지만 이러한 방식은 instance를 생성할 때마다 모든 method를 변수(여기선 someInstace)에게 할당하므로, 각각의 instance들이 method의 수 만큼의 메모리를 더 차지한다. 즉, 용량이 커진다.   
-
+이렇게 변수에 함수를 할당하고 함수에 객체와 함수를 넣어줘서 객체를 리턴하는 함수를 생성하면 우리가 알고있던 class가 만들어진다. 하지만 이러한 방식은 instance를 생성할 때마다 모든 method를 변수(여기선 someInstace)에게 할당하므로, 각각의 instance들이 method의 수 만큼의 메모리를 더 차지한다. 즉, 용량이 커진다.
+   
 2) Functional Shared
 > 각각의 역할이 정해진 함수들을 만들어놓고 그 함수들을 이용하여 instance를 생성하는 방식이다.
 ```js
@@ -56,8 +56,8 @@ let Car = function(position) {
     return someInstance;
 }; 
 ```
-역할을 분리했기 때문에 변수가 많아지긴 했지만, 이 방식은 someMethods라는 객체에 있는 method들의 메모리 주소만을 참조하기 때문에 메모리 효율이 좋다. 또한, 사용하고 싶은 method가 많아져도 someMethods 변수 안에서 한번 다 만들어 놓으면 method를 다시 작성할 필요없이 원하는 때에 사용할 수 있기 때문에 복잡한 상황에서 과정이 더 수월해진다.   
-
+역할을 분리했기 때문에 변수가 많아지긴 했지만, 이 방식은 someMethods라는 객체에 있는 method들의 메모리 주소만을 참조하기 때문에 메모리 효율이 좋다. 또한, 사용하고 싶은 method가 많아져도 someMethods 변수 안에서 한번 다 만들어 놓으면 method를 다시 작성할 필요없이 원하는 때에 사용할 수 있기 때문에 복잡한 상황에서 과정이 더 수월해진다.
+   
 3) Prototypal
 > 특정 개체를 프로토타입으로 하는 객체를 생성하고 활용하여 class를 생성하는 방식이다.
 ```js
@@ -72,8 +72,8 @@ let Car = function(position) {
     return someInstance;
 };
 ```
-이 방식 또한 Functional Shared와 비슷하다.(다만 Functional Shared에 비해서 코드가 더 간결하다.) 기능들을 담고 있는 함수를 프로토타입 객체로 만들어 놓기 때문에 많은 기능들을 다뤄야할 때 한번만 작성해 놓으면 계속해서 간편하게 사용할 수 있다.   
-
+이 방식 또한 Functional Shared와 비슷하다.(다만 Functional Shared에 비해서 코드가 더 간결하다.) 기능들을 담고 있는 함수를 프로토타입 객체로 만들어 놓기 때문에 많은 기능들을 다뤄야할 때 한번만 작성해 놓으면 계속해서 간편하게 사용할 수 있다.
+   
 4) Pseudoclassical
 > 객체의 프로토타입에 직접 함수를 추가하여 사용하는 방식이다.
 ```js
