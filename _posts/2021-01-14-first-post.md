@@ -25,8 +25,6 @@ me.consoleIt();
 
 *블로그 테마는 Jekyll 테마이며 그중에서 minimal-mistakes라는 테마를 사용하셨습니다.
    
-1.Link: [theme][Jekyll-theme]   
-[Jekyll-theme]: https://github.com/topics/jekyll-theme "Go Jekyll-theme"
+1.Jekyll테마: <https://github.com/topics/jekyll-theme>
    
-2.Link: [mmistakes][mmistakes / minimal-mistake]   
-[mmistakes / minimal-mistake]: https://github.com/mmistakes/minimal-mistake "Go mmistakes github"
+2.minimal-mistakes: <[https://github.com/mmistakes/minimal-mistake>
