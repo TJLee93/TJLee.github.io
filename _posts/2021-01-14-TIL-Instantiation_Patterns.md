@@ -32,12 +32,11 @@ let Car = function(position) {
   return someInstance;
 } // 인자를 통해 position의 초기값을 설정
 ```
-
 이렇게 변수에 함수를 할당하고 함수에 객체와 함수를 넣어줘서 객체를 리턴하는 함수를 생성하면 우리가 알고있던 class가 만들어진다. 하지만 이러한 방식은 instance를 생성할 때마다 모든 method를 변수(여기선 someInstace)에게 할당하므로, 각각의 instance들이 method의 수 만큼의 메모리를 더 차지한다. 즉, 용량이 커진다.
    
 2) Functional Shared
 > 각각의 역할이 정해진 함수들을 만들어놓고 그 함수들을 이용하여 instance를 생성하는 방식이다.
-```
+```js
 let extend = function(to, from) {
   for(let key in from) {
       to[key] = from[key];
@@ -61,7 +60,7 @@ let Car = function(position) {
    
 3) Prototypal
 > 특정 개체를 프로토타입으로 하는 객체를 생성하고 활용하여 class를 생성하는 방식이다.
-```
+```js
 let someMethods = {};
 someMethods.move = function () {
   this.position += 1;
@@ -77,7 +76,7 @@ let Car = function(position) {
    
 4) Pseudoclassical
 > 객체의 프로토타입에 직접 함수를 추가하여 사용하는 방식이다.
-```
+```js
 let Car = function(position) {
   this.position = position;
 };
