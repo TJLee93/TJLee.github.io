@@ -36,7 +36,8 @@ let Car = function(position) {
    
 2) Functional Shared
 > 각각의 역할이 정해진 함수들을 만들어놓고 그 함수들을 이용하여 instance를 생성하는 방식이다.
-```js
+<pre>
+<code>
 let extend = function(to, from) {
     for(let key in from) {
         to[key] = from[key];
@@ -55,12 +56,14 @@ let Car = function(position) {
     extend(someInstance, someMethods); // extend 함수를 통해 someInstance에 someMethods의 기능을 넣어줌.
     return someInstance;
 }
-```
+</code>
+</pre>
 역할을 분리했기 때문에 변수가 많아지긴 했지만, 이 방식은 someMethods라는 객체에 있는 method들의 메모리 주소만을 참조하기 때문에 메모리 효율이 좋다. 또한, 사용하고 싶은 method가 많아져도 someMethods 변수 안에서 한번 다 만들어 놓으면 method를 다시 작성할 필요없이 원하는 때에 사용할 수 있기 때문에 복잡한 상황에서 과정이 더 수월해진다.
    
 3) Prototypal
 > 특정 개체를 프로토타입으로 하는 객체를 생성하고 활용하여 class를 생성하는 방식이다.
-```
+<pre>
+<code>
 let someMethods = {};
 someMethods.move = function () {
   this.position += 1;
@@ -71,12 +74,14 @@ let Car = function(position) {
   someInstance.position = position; // === someInstance = {position: position(parameter)};
   return someInstance;
 };
-```
+</code>
+</pre>
 이 방식 또한 Functional Shared와 비슷하다.(다만 Functional Shared에 비해서 코드가 더 간결하다.) 기능들을 담고 있는 함수를 프로토타입 객체로 만들어 놓기 때문에 많은 기능들을 다뤄야할 때 한번만 작성해 놓으면 계속해서 간편하게 사용할 수 있다.
    
 4) Pseudoclassical
 > 객체의 프로토타입에 직접 함수를 추가하여 사용하는 방식이다.
-```
+<pre>
+<code>
 let Car = function(position) {
   this.position = position;
 };
@@ -84,7 +89,8 @@ let Car = function(position) {
 Car.prototype.move = function() {
   this.position += 1;
 };
-```
+</code>
+</pre>
 이 방식은 가장 많이 쓰이는 방식이며 코드를 간편화하여 class를 생성한다. 하지만 만들어 놓은 객체의 프로토타입에 직접적으로 영향을 주는 것이기 때문에 잘못하면 객체 자체가 손상을 입을 수 있으므로 유의해야한다.   
    
 솔직히 이미 더 쉽게 class를 만들수 있는 방법을 알고 있는 상황에서 이 방식들을 따라할 필요가 있는지는 의문이 들지만 이러한 방법들로도 class를 생성할 수 있고 class가 만들어지는 원리에 대해서 공부하는데는 많은 도움을 얻었다는 점에서는 좋은 공부가 되었다.   
