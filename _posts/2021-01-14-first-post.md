@@ -21,7 +21,7 @@ class JavaScript {
 
 let me = new JavaScript("TJLee", "좌절", "성취감");
 me.consoleIt();
-````
+```
 
 *블로그 테마는 Jekyll 테마이며 그중에서 minimal-mistakes라는 테마를 사용하셨습니다.
    
