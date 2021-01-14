@@ -20,9 +20,9 @@ let Car = function() {
   return someInstance;
 }; 
 let car1 = Car(5); // car1은 Car(class)의 instance
-
+```
 or
-
+```js
 let Car = function(position) {
   let someInstance = {};
   someInstance.position = position;
