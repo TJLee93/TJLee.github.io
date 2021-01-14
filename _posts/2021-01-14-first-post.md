@@ -27,4 +27,4 @@ me.consoleIt();
    
 1.Jekyll테마: <https://github.com/topics/jekyll-theme>
    
-2.minimal-mistakes: <[https://github.com/mmistakes/minimal-mistake>
+2.minimal-mistakes: <https://github.com/mmistakes/minimal-mistake>
