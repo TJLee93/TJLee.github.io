@@ -33,9 +33,10 @@
     </a>
     {% else %}
     <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
-    TJLee
+    {% endif %}
+    {% if author.bio %}
     <div class="author__bio" itemprop="description">
-      이 블로그는 JavaScript를 공부한 것을 정리하면서 과연 내가 제대로 이해를 하고 있는지 체크하는 '진실의 방'입니다.
+      {{ author.bio | markdownify }}
     </div>
     {% endif %}
   </div>
