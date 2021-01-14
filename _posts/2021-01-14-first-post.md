@@ -7,12 +7,23 @@ categories: jekyll update
 아직 더 배우고 있는 입장이기에 제가 잘못 작성하거나 잘못 이해한 부분에 관한 지적은 언제든 환영합니다.
 
 ```js
-console.log('Learning JavaScript is Hard')
-console.log('But it gives me Achievement')
-console.log('feat.codestates')
+class JavaScript {
+    constructor(name, negFeeling, posFeeling) {
+        this.name = name;
+        this.negFeeling = negFeeling;
+        this.posFeeling = posFeeling;
+    } 
+
+    consoleIt() {
+        console.log(`JavaScript를 배우면서 ${this.name}은 많은 ${this.negFeeling}을 느낀다. 하지만 해냈을때는 큰 ${this.posFeeling}을 느낀다.`);
+    }
+}
+
+let me = new JavaScript("TJLee", "좌절", "성취감");
+me.consoleIt();
 ````
 
-*참고로 블로그 테마는 Jekyll 테마이며 그중에서 minimal-mistakes라는 테마를 사용하셨습니다.
+*블로그 테마는 Jekyll 테마이며 그중에서 minimal-mistakes라는 테마를 사용하셨습니다.
 
 [Jekyll-theme]:
 https://github.com/topics/jekyll-theme
