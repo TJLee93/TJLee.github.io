@@ -11,8 +11,8 @@
         {% unless logo_path == empty %}
         <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt=""></a>
         {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">JavaScript 정리 공간
-          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          JavaScript 정리 공간
         </a>
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
