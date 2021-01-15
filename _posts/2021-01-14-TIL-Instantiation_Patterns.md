@@ -5,7 +5,7 @@ categories: JavaScript codestates github Instantiation class
 ---
 ![instantiation patterns](https://user-images.githubusercontent.com/70124288/104607554-49ff9f00-56c4-11eb-800d-404096c40835.jpeg)
 
-**1.Instantiation Patterns**
+**Instantiation Patterns**   
 객체 지향 프로그래밍을 하는데 있어서 class는 필수적인 개념이다. 현재는 이 class를 만드는 법이 간편화되어 있지만 과거에는 class를 만들려면 직접 객체를 만들고 함수를 만들어서 조합하여 class를 생성해야했다. 오늘은 과거 class를 만드는 방법을 코드스테이츠 강의에서 사용한 코드를 가지고 정리해보려고 한다.  
 
 1) Functional
