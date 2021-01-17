@@ -6,9 +6,9 @@ categories: JavaScript codestates github Prototype Inheritance ES6
 ---
 (시간날때마다 추가하겠습니다... sprint 어렵네요 ㅜㅜ)
 
-Inheritance(상속)란 상위 객체(parent)의 특징을 하위 객체(child)한테 넘겨주는 것이다. 그리고 하위 객체는 상위 객체로부터 물려받은 특징을 베이스로 해서 새로운 특징을 추가할 수 있다. 상속이 어떤 원리로 이루어지고 어떤 개념인지 좀더 구체적으로 알기 위해서는 다른 개념들도 같이 알아둬야 한다. 그래서 오늘은 다른 개념들도 정리하면서 상속에 관해 알아보려 한다.
+Inheritance(상속)란 상위 객체(parent)의 특징을 하위 객체(child)한테 넘겨주는 것이다. 그리고 하위 객체는 상위 객체로부터 물려받은 특징을 베이스로 해서 새로운 특징을 추가할 수 있다. 상속이 어떤 원리로 이루어지고 어떤 개념인지 좀더 구체적으로 알기 위해서는 다른 개념들도 같이 알아둬야 한다. 그래서 오늘은 다른 개념들도 정리하면서 상속에 관해 알아보려 한다.   
 
-**1.prototype**
+**1.prototype**   
 상속에 대해서 정확히 이해하기 위해선 prototype을 빼놓을 수 없다.   
 prototype은 모든 함수(object)에 property로 들어가있는데,  prototype이란 어떤 object를 만들 때 쓰는 원형 객체(original form)을 말한다. (ex. Array.prototype : Array의 원형 객체, Object.prototype : Object의 원형 객체)   
 <img width="1010" alt="prototype 예시1" src="https://user-images.githubusercontent.com/70124288/104836835-16a35700-58f4-11eb-8ebe-76236575e7e5.png">   
@@ -41,7 +41,7 @@ mine.sleep("Lee"); // "Lee is sleeping...zzz" // mine은 myObj의 instance지만
 human.sayHello(); // TypeError: human.sayHello is not a function
 human.sleep(); // "Kim is sleeping...zzz"
 ```
-
+   
 **2.constructor**
 constructor는 class내에서 객체를 생성하고 초기화하기 위한 method이다.
 
