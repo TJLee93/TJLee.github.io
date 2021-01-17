@@ -19,7 +19,7 @@ let Human = function(name) {
     this.name = name;
 } // Human이라는 class를 생성
 Human.prototype.sleep = function() {
-    console.log(this.name + ' is sleeping...zzz);
+    console.log(this.name + ' is sleeping...zzz');
 } // Human class의 prototype에 sleep(property)이라는 함수(기능)를 넣어줌.
 // 원하는 때에 Human의 instance는 sleep 함수를 사용할 수 있다.
    
