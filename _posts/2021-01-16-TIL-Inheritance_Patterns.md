@@ -20,24 +20,29 @@ let Human = function(name) {
 } // Human이라는 class를 생성
 Human.prototype.sleep = function() {
     console.log(this.name + ' is sleeping...zzz);
-} // Human class의 prototype에 sleep(property)이라는 함수(기능)를 넣어줌. 원하는 때에 Human의 instance는 sleep 함수를 사용할 수 있다.
+} // Human class의 prototype에 sleep(property)이라는 함수(기능)를 넣어줌.
+// 원하는 때에 Human의 instance는 sleep 함수를 사용할 수 있다.
 
 let human = new Human("Kim"); // human은 Human class의 instance
 
 let myObj = function() {}; // myObj라는 class를 생성
 
-myObj.prototype = Object.create(String.prototype); // String의 prototype에 있는 property들을 복사해서 myObj의 prototype에 넣는다. (Array.slice랑 비슷하다고 생각했다.) -> 갖고있는 properties는 같지만, 주소값이 서로 다르다. (Object.create을 통해 prototype을 '상속'받는다.)
+myObj.prototype = Object.create(String.prototype); // String의 prototype에 있는 property들을 복사해서 myObj의 prototype에 넣는다.(Array.slice랑 비슷하다고 생각했다.) 
+// -> 갖고있는 properties는 같지만, 주소값이 서로 다르다.(Object.create을 통해 prototype을 '상속'받는다.)
 
-//myObj.prototype = String.prototype; // 같은 property를 공유하고 있으며 주소값도 같다. (myObj.prototype === String.prototype)
+// myObj.prototype = String.prototype; // 같은 property를 공유하고 있으며 주소값도 같다.(myObj.prototype === String.prototype)
 
 myObj.prototype.sayHello = function() {
     console.log("Hello");
-} // myObj의 prototype에 sayHello(property)라는 함수(기능)을 넣어준다. 원하는 때에 myObj의 instance는 sayHello 함수를 사용할 수 있다.
+} // myObj의 prototype에 sayHello(property)라는 함수(기능)을 넣어준다.
+// 원하는 때에 myObj의 instance는 sayHello 함수를 사용할 수 있다.
 
 let mine = new myObj(); // mine은 myObj의 instance
 
 mine.sayHello(); // "Hello"
-mine.sleep("Lee"); // "Lee is sleeping...zzz" // mine은 myObj의 instance지만 myObj가 Object.create을 통해 Human으로부터 prototype의 property들을 상속 받았기 때문에 Human의 기능도 사용할 수 있다.
+mine.sleep("Lee"); // "Lee is sleeping...zzz" 
+// mine은 myObj의 instance지만 myObj가 Object.create을 통해 Human으로부터 
+// prototype의 property들을 상속 받았기 때문에 Human의 기능도 사용할 수 있다.
 human.sayHello(); // TypeError: human.sayHello is not a function
 human.sleep(); // "Kim is sleeping...zzz"
 ```
