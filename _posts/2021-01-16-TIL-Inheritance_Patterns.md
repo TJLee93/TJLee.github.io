@@ -1,10 +1,12 @@
 ---
 title: "Inheritance에 대해 자세히 알아보자"
 date: 2021-01-16 14:12:33 -0400
-update: 2021-01-17 19:00:00 -0400
+update: 2021-01-18 23:43:49 -0400
 categories: JavaScript codestates github Prototype Inheritance ES6 
 ---
 (시간날때마다 추가하겠습니다... sprint 어렵네요 ㅜㅜ)
+
+<img width="514" alt="스크린샷 2021-01-18 오후 5 30 27" src="https://user-images.githubusercontent.com/70124288/104912712-f8ab2480-59cf-11eb-99c4-c87fa2c11a2d.png">
 
 Inheritance(상속)란 상위 객체(parent)의 특징을 하위 객체(child)한테 넘겨주는 것이다. 그리고 하위 객체는 상위 객체로부터 물려받은 특징을 베이스로 해서 새로운 특징을 추가할 수 있다. 상속이 어떤 원리로 이루어지고 어떤 개념인지 좀더 구체적으로 알기 위해서는 다른 개념들도 같이 알아둬야 한다. 그래서 오늘은 다른 개념들도 정리하면서 상속에 관해 알아보려 한다.   
 
@@ -14,6 +16,7 @@ prototype은 모든 함수(object)에 property로 들어가있는데,  prototype
 <img width="1010" alt="prototype 예시1" src="https://user-images.githubusercontent.com/70124288/104836835-16a35700-58f4-11eb-8ebe-76236575e7e5.png">   
 그림과 같이 Object와 Array의 prototype에는 무수히 많은 property들이 담겨있는 것을 볼 수 있는데, 이는 과거 JavaScript를 사용하던 선배들이 객체 지향 프로그래밍을 하기 위해서 하나하나씩 만들고 추가하신 것이다. 이렇게 우리가 코플릿을 풀면서 사용했던 method들은 다 prototype에 담겨있던 method였기에 사용이 가능했던 것이다.   
 만약 우리가 만든 새로운 객체에서 원하는 property를 사용할 수 있게 하고 싶으면 추가하려는 property를 새로운 객체의 prototype에 추가시키면 된다. 그렇게 하면 어느때든 property를 사용할 수 있기 때문에 유용하다.   
+
 ```js
 let Human = function(name) {
     this.name = name;
@@ -34,7 +37,7 @@ myObj.prototype = Object.create(String.prototype); // String의 prototype에 있
    
 myObj.prototype.sayHello = function() {
     console.log("Hello");
-} // myObj의 prototype에 sayHello(property)라는 함수(기능)을 넣어준다.
+} // myObj의 prototype에 sayHello(property)라는 함수(기능)을 넣어준다.   
 // 원하는 때에 myObj의 instance는 sayHello 함수를 사용할 수 있다.
    
 let mine = new myObj(); // mine은 myObj의 instance
@@ -45,9 +48,70 @@ mine.sleep("Lee"); // "Lee is sleeping...zzz"
 // prototype의 property들을 상속 받았기 때문에 Human의 기능도 사용할 수 있다.   
 human.sayHello(); // TypeError: human.sayHello is not a function   
 human.sleep(); // "Kim is sleeping...zzz"
-```
+```   
    
 **2.constructor**
-constructor는 class내에서 객체를 생성하고 초기화하기 위한 method이다.
+constructor는 class내에서 객체를 생성하고 초기화하기 위한 method이며
+(instance 생성시 초기화시키는 함수), class당 1개씩만 가지고 있는 특별한 method이다.   
+```js
+class Human {
+  constructor(name) {
+    this.name = name;
+  }
+  sleep() {
+    console.log(this.name + ' is sleeping...zzz');
+  }
+}
+
+let steve = new Human(‘steve’); // steve === Human의 instance
+
+class Student extends Human { 
+  constructor(name) {
+    super(name); // parentClass에 childClass의 this를 바인딩 시키는 작업
+  } // parent의 constructor와 child의 constructor가 동일하면 (구성이 동일하면) child의 constructor는 생략 가능하다.
+  learn() {
+    console.log('아직 배워야할게 많습니다.')
+  };
+} // Student === childClass, Human === parentClass
+// super : 상속시 this를 전달하기 위해 사용하는 .call(), .apply()등 대신, 이 키워드 하나로 대체 가능. (부모 생성자 호출)
+// extends : prototype이나 constructor를 연결시키는 작업을 해주는 키워드. (Student를 Human의 childClass로 만듬.)
+
+let john = new Student(‘john’); // john === Student의 instance
+john.learn(); // '아직 배워야할게 많습니다.'
+john.sleep(); // john is sleeping….
+```   
+   
+**3.__proto__**
+__proto__는 new 키워드를 통해 새로운 instance가 만들어졌을 때, 그 instance의 기능으로 추가된다.   
+```js
+function Human(name) {
+  this.name = name;
+}
+
+let steve = new Human(‘steve’); // 변수 Steve는 함수 Human의 instance
+
+steve.__proto__; // === Human.prototype 
+```   
+위의 코드와 같이 new로 steve라는 Human(class)의 instance가 생성이 되었고, steve에 __proto__라는 기능도 같이 추가가 되는데 이때 steve의 __proto__는 Human의 prototype을 가리킨다. 즉, __proto__는 자신보다 상위 객체의 prototype을 참조해 상위 객체의 기능을 가져와서 사용할 수 있게 한다.(상속)   
+좀 더 자세히 알아보기 위해 다른 코드도 보도록 하자.   
+```js
+let Human = function(name) {
+  this.name = name;
+} // class 생성
+
+Human.prototype.sleep = function() {}; // Human의 prototype에 sleep 기능 추가.
+
+let steve = new Human(‘steve’); // steve는 Human의 instance
+
+steve.toString(); // 결과물 : [Object Object]
+// toString은 상속에서 상위 객체인 Object의 prototype에 있는 기능.
+// Object.prototype에 있는 toString method를 가져와서 사용. (상속)
+// steve.__proto__ === Human.prototype
+// steve.__proto__.__proto__ === Object.prototype -> Object는 상속의 가장 상위 단계 (MDN Object)
+```   
+위의 코드를 통해 Human의 instance인 steve가 자신의 부모 객체인 Human의 부모 객체인 Object의 prototype을 참조하여 toString method를 사용하는 것을 알 수 있다.   
+요약하자면 __proto__는 new 키워드를 통해 만들어진 자식 객체가 자신보다 상위의 객체의 prototype을 참조하는 것이고, 이를 통해 상위 객체의 method를 사용할 수 있게 된다.   
+   
+**4.Object.create**
 
 /* prototype, constructor, ES6 Syntex, __proto__, Object.create 에 대해서 스스로 학습 후 이들 중 하나를 골라 TIL 작성 */

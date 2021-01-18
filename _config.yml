@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "TJLee"
-  avatar           : "/_imageFiles/images/쿵푸기린.jpg"
+  avatar           : "_imageFiles/쿵푸기린.jpg"
  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "이 블로그는 JavaScript를 공부하면서 제대로 이해했는지 체크하는 '진실의 방'입니다."
   location         : "South Korea"
