@@ -50,7 +50,8 @@ human.sayHello(); // TypeError: human.sayHello is not a function
 human.sleep(); // "Kim is sleeping...zzz"
 ```   
    
-**2.constructor**
+
+**2.constructor**   
 constructor는 class내에서 객체를 생성하고 초기화하기 위한 method이며
 (instance 생성시 초기화시키는 함수), class당 1개씩만 가지고 있는 특별한 method이다.   
 ```js
@@ -81,7 +82,8 @@ john.learn(); // '아직 배워야할게 많습니다.'
 john.sleep(); // john is sleeping….
 ```   
    
-**3.__proto__**
+
+**3.__proto__**   
 __proto__는 new 키워드를 통해 새로운 instance가 만들어졌을 때, 그 instance의 기능으로 추가된다.   
 ```js
 function Human(name) {
@@ -112,6 +114,8 @@ steve.toString(); // 결과물 : [Object Object]
 위의 코드를 통해 Human의 instance인 steve가 자신의 부모 객체인 Human의 부모 객체인 Object의 prototype을 참조하여 toString method를 사용하는 것을 알 수 있다.   
 요약하자면 __proto__는 new 키워드를 통해 만들어진 자식 객체가 자신보다 상위의 객체의 prototype을 참조하는 것이고, 이를 통해 상위 객체의 method를 사용할 수 있게 된다.   
    
-**4.Object.create**
+
+**4.Object.create**   
+
 
 /* prototype, constructor, ES6 Syntex, __proto__, Object.create 에 대해서 스스로 학습 후 이들 중 하나를 골라 TIL 작성 */
