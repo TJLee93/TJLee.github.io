@@ -1,7 +1,7 @@
 ---
 title: "Inheritance에 대해 자세히 알아보자"
 date: 2021-01-16 14:12:33 -0400
-update: 2021-01-18 23:43:49 -0400
+update: 2021-01-19 23:46:49 -0400
 categories: JavaScript codestates github Prototype Inheritance ES6 
 ---
 (시간날때마다 추가하겠습니다... sprint 어렵네요 ㅜㅜ)
@@ -115,7 +115,38 @@ steve.toString(); // 결과물 : [Object Object]
 요약하자면 __proto__는 new 키워드를 통해 만들어진 자식 객체가 자신보다 상위의 객체의 prototype을 참조하는 것이고, 이를 통해 상위 객체의 method를 사용할 수 있게 된다.   
    
 
-**4.Object.create**   
+**4.Object.create(proto)**   
+이 함수는 Object.prototype에 내장되어 있는 함수(기능)으로, 인자로 받은 prototype을 새 객체에 복사해서 할당한다(Array.slice 같은 기능이라고 생각하면 될 것 같다). 즉, 인자로 받은 prototype의 내장 기능들을 가지고 있지만 주소값은 다른 객체를 만들 때 사용한다.   
+```js
+let Human = function(name) {
+  this.name = name;
+};
 
+Human.prototype.sleep = function() {
+  console.log('zzz');
+}
 
-/* prototype, constructor, ES6 Syntex, __proto__, Object.create 에 대해서 스스로 학습 후 이들 중 하나를 골라 TIL 작성 */
+function Student() {
+};
+
+Student.prototype = Object.create(Human.prototype);
+// Student.prototype.constructor = Student;
+// Object.create시 constructor의 연결이 끊어지므로 다시 연결해줘야한다.
+
+let student1 = new Student();
+
+Student.prototype.learn = function() { 
+    console.log(‘배우는중…’);
+}
+
+student1.learn(); // 배우는중…
+student1.sleep(); // zzz
+
+student1 instanceof Student; // true
+student1 instanceof Human; // true
+```   
+다만 이때 주의해야할 점은 Object.create을 사용시, student1의 constructor가 Student와 연결이 끊어지게 된다. 직접 코딩을 해서 student1의 constructor를 찾으면 Human과 연결된 것을 알 수 있다.
+그래서 제대로 constructor를 연결시켜주기 위해서는 위의 주석으로 달아둔 것 처럼 constructor를 Student에 연결시키는 작업을 해줘야 한다.
+   
+   
+이렇게 Inheritance의 4가지 pattern에 대해서 정리를 해봤다. 솔직히 아직 부족한 점도 많고 완벽하게 이해했다고 생각이 되지는 않지만, 블로깅을 진행하면서 뭔가 잡스럽게 머릿속에 있던 것들이 조금은 정리가 된 느낌이라 다음에 봤을 때는 좀 더 쉽게 이해가 될 것 같다.
