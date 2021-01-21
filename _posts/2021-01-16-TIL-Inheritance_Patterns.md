@@ -4,8 +4,6 @@ date: 2021-01-16 14:12:33 -0400
 update: 2021-01-19 23:46:49 -0400
 categories: JavaScript codestates github Prototype Inheritance ES6 
 ---
-(시간날때마다 추가하겠습니다... sprint 어렵네요 ㅜㅜ)
-
 <img width="514" alt="스크린샷 2021-01-18 오후 5 30 27" src="https://user-images.githubusercontent.com/70124288/104912712-f8ab2480-59cf-11eb-99c4-c87fa2c11a2d.png">
 
 Inheritance(상속)란 상위 객체(parent)의 특징을 하위 객체(child)한테 넘겨주는 것이다. 그리고 하위 객체는 상위 객체로부터 물려받은 특징을 베이스로 해서 새로운 특징을 추가할 수 있다. 상속이 어떤 원리로 이루어지고 어떤 개념인지 좀더 구체적으로 알기 위해서는 다른 개념들도 같이 알아둬야 한다. 그래서 오늘은 다른 개념들도 정리하면서 상속에 관해 알아보려 한다.   
