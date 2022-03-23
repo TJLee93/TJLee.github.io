@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "JavaScript 정리 공간"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
+name                     : ""
 description              : "An amazing website."
 url                      : "https://TJLee93.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : ''# the subpath of your site, e.g. "/blog"
@@ -107,11 +107,12 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  name             : "TJLee"
+  avatar           : "_imageFiles/쿵푸기린.jpg"
+ # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "이 블로그는 JavaScript를 공부하면서 제대로 이해했는지 체크하는 '진실의 방'입니다."
+  location         : "South Korea"
+  email            : "dlxowns97@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
